@@ -1,9 +1,9 @@
 function Guess(){
     return (
-        <div class="input_container">
+        <div className="input_container">
             <span>Já sei a palavra!</span>
-            <input></input>
-            <button>Chutar</button>
+            <input disabled></input>
+            <button className="disabled">Chutar</button>
         </div>
     )
 }

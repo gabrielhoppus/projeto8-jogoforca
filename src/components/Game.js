@@ -1,9 +1,9 @@
 function Game(){
     return (
-        <div class="container">
+        <div className="container">
             <img src="../assets/forca0.png" />
             <button>Escolher palavra</button>
-            <p class="word hidden">quarentena</p>
+            <p className="word hidden">quarentena</p>
         </div>
     )
 }
