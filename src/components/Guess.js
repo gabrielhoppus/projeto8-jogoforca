@@ -1,19 +1,40 @@
-function Guess({inputState, buttonState, guessInput, setInput, word, targetPuzzle, targetWord, setPuzzle, setErrorCount}){
+function Guess({    inputState,
+                    buttonState,
+                    guessInput,
+                    setInput,
+                    word,
+                    targetPuzzle,
+                    targetWord,
+                    setPuzzle,
+                    setErrorCount,
+                    setButtonState,
+                    setLetterState,
+                    setInputState,
+                    setColor
+                    }){
 
-    let correctGuess = [...targetPuzzle]
-    const correctWordArray = [...targetWord]
-    const wordComparison = word
+    let correctGuess = [...targetPuzzle];
+    const correctWordArray = [...targetWord];
+    const wordComparison = word;
     
 
 
 
     function makeGuess(){
         if (guessInput === wordComparison){
-            correctGuess = correctWordArray
-            setPuzzle(correctGuess)
+            correctGuess = correctWordArray;
+            setPuzzle(correctGuess);
+            setLetterState("disabled");
+            setButtonState("disabled");
+            setInputState(true);
+            setColor("win");
         }else{
-            setErrorCount(6)
-            setPuzzle(correctWordArray)
+            setErrorCount(6);
+            setPuzzle(correctWordArray);
+            setLetterState("disabled");
+            setButtonState("disabled");
+            setInputState(true);
+            setColor("loss");
         }
     }
 

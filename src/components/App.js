@@ -19,6 +19,7 @@ function App() {
   const [targetWord, setTarget] = useState([])
   const [targetPuzzle, setPuzzle] = useState([])
   const [guessInput, setInput] = useState("")
+  const [statusColor, setColor] = useState("neutral")
 
   return (
     <div>
@@ -41,7 +42,10 @@ function App() {
       setTarget={setTarget}
       setPuzzle={setPuzzle}
       targetPuzzle={targetPuzzle}
-
+      statusColor={statusColor}
+      setColor={setColor}
+      setInput={setInput}
+      setLetter={setLetter}
       />
       <Letters 
       letterState={letterState}
@@ -53,6 +57,9 @@ function App() {
       setPuzzle={setPuzzle}
       setErrorCount={setErrorCount}
       errorCount={errorCount}
+      setButtonState={setButtonState}
+      setInputState={setInputState}
+      setColor={setColor}
       />
       <Guess
       inputState={inputState}
@@ -64,6 +71,10 @@ function App() {
       targetWord={targetWord}
       setPuzzle={setPuzzle}
       setErrorCount={setErrorCount}
+      setLetterState={setLetterState}
+      setButtonState={setButtonState}
+      setInputState={setInputState}
+      setColor={setColor}
       />
     </div>
   );

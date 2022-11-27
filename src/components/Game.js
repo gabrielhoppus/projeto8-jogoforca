@@ -14,36 +14,44 @@ function Game({ image,
                 wordList,
                 setPuzzle,
                 setTarget,
-                targetPuzzle
+                targetPuzzle,
+                statusColor,
+                setColor,
+                setInput,
+                setLetter
                 }){
     
     let wordArray = [];
     let hiddenArray = [];
     const newWordList = [...wordList]
     const newTargetPuzzle = [...targetPuzzle]
+    const randomSeed = Math.floor(Math.random() * newWordList.length)
 
-    function getWord(){
-        setSeed(Math.floor(Math.random() * newWordList.length));
-        setWord(newWordList[wordSeed]);
-    }
-    
     function chooseWord(){
         setErrorCount(0);
         setImage(errorCount);
         setInputState(false);
         setLetterState("enabled");
+        setLetter([])
         setButtonState("enabled");
         setWordState("");
-        getWord()
-        setTarget(wordArray)
-        setPuzzle(hiddenArray)
-        console.log(wordArray)
+        setSeed(randomSeed);
+        setWord(newWordList[wordSeed]);
+        setTarget(wordArray);
+        setPuzzle(hiddenArray);
+        setColor("neutral");
+        setInput("");
+        console.log(wordArray);
+        console.log(hiddenArray);
+        console.log(word)
+        console.log(word.length)        
     }
-    
-    wordArray = word.split("")
+
+    wordArray = word.split("");
     for (let i = 0; i < wordArray.length; i++){
         hiddenArray.push("_")
     };
+
 
     return (
         <div className="container">
@@ -52,7 +60,7 @@ function Game({ image,
                 <button onClick={chooseWord}>Escolher palavra</button>
                 {hiddenArray.map((letter, i) =>
                     <ul className={`word`} key={`${word+i}`}>
-                        <li className={`${wordState}`} key={`${letter+i}`}>
+                        <li className={`${wordState} ${statusColor}`} key={`${letter+i}`}>
                             {letter ? newTargetPuzzle[i] : hiddenArray[i]}
                         </li>
                     </ul>
