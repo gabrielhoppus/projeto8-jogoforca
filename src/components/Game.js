@@ -8,42 +8,60 @@ function Game({ image,
                 wordState, 
                 setWordState,
                 word,
-                setWord
+                setWord,
+                wordSeed,
+                setSeed,
+                wordList,
+                setPuzzle,
+                setTarget,
+                targetPuzzle
                 }){
     
-    let wordArray = []
-    let hiddenArray = []
-            wordArray = word.split("") 
-        for (let i = 0; i < wordArray.length; i++){
-            hiddenArray.push("_")
-        }
+    let wordArray = [];
+    let hiddenArray = [];
+    const newWordList = [...wordList]
+    const newTargetPuzzle = [...targetPuzzle]
+
+    function getWord(){
+        setSeed(Math.floor(Math.random() * newWordList.length));
+        setWord(newWordList[wordSeed]);
+    }
     
     function chooseWord(){
-        setErrorCount(0)
-        setImage(errorCount)
-        setInputState(false)
-        setLetterState("enabled")
-        setButtonState("enabled")
-        setWordState("")
-        setWord(word)
+        setErrorCount(0);
+        setImage(errorCount);
+        setInputState(false);
+        setLetterState("enabled");
+        setButtonState("enabled");
+        setWordState("");
+        getWord()
+        setTarget(wordArray)
+        setPuzzle(hiddenArray)
+        console.log(wordArray)
     }
+    
+    wordArray = word.split("")
+    for (let i = 0; i < wordArray.length; i++){
+        hiddenArray.push("_")
+    };
+
+    console.log(errorCount)
 
     return (
         <div className="container">
-            <img src={`./assets/forca${image ? image : 0}.png`} alt="forca"/>
+            <img className={`hanging ${wordState}`} src={`./assets/forca${image ? errorCount : errorCount}.png`} alt="forca"/>
             <div className="right_container">
                 <button onClick={chooseWord}>Escolher palavra</button>
                 {hiddenArray.map((letter, i) =>
                     <ul className={`word`} key={`${word+i}`}>
                         <li className={`${wordState}`} key={`${letter+i}`}>
-                            {letter}
+                            {letter ? newTargetPuzzle[i] : hiddenArray[i]}
                         </li>
                     </ul>
             )}
             </div>
-            
         </div>
     )
-}
+};
 
-export default Game
+export default Game;

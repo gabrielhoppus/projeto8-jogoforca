@@ -6,6 +6,7 @@ function Guess({inputState, buttonState}){
             <button className={buttonState}>Chutar</button>
         </div>
     )
-}
+};
 
-export default Guess
+export default Guess;
+
