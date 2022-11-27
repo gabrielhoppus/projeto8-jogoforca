@@ -55,13 +55,32 @@ body {
 }
 
 .container .word{
+  min-width: 30px;
+  height: 60px;
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
   font-size: 50px;
   line-height: 68px;
-  position: absolute;
   right: 0;
   bottom: 26.67px;
+  display: flex;
+}
+
+.right_container li{
+  min-width: none;
+  margin-right: 10px ;
+}
+
+.right_container{
+  min-width: none;
+  display: flex;
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+
+.right_container ul{
+  margin-top: 350px;
 }
 
 .loss{
