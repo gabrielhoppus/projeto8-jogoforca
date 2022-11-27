@@ -18,6 +18,7 @@ function App() {
   const [selectedLetter, setLetter] = useState([])
   const [targetWord, setTarget] = useState([])
   const [targetPuzzle, setPuzzle] = useState([])
+  const [guessInput, setInput] = useState("")
 
   return (
     <div>
@@ -56,6 +57,13 @@ function App() {
       <Guess
       inputState={inputState}
       buttonState={buttonState}
+      guessInput={guessInput}
+      setInput={setInput}
+      word={word}
+      targetPuzzle={targetPuzzle}
+      targetWord={targetWord}
+      setPuzzle={setPuzzle}
+      setErrorCount={setErrorCount}
       />
     </div>
   );

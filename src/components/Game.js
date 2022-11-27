@@ -45,8 +45,6 @@ function Game({ image,
         hiddenArray.push("_")
     };
 
-    console.log(errorCount)
-
     return (
         <div className="container">
             <img className={`hanging ${wordState}`} src={`./assets/forca${image ? errorCount : errorCount}.png`} alt="forca"/>
