@@ -66,11 +66,6 @@ body {
   display: flex;
 }
 
-.right_container li{
-  min-width: none;
-  margin-right: 10px ;
-}
-
 .right_container{
   min-width: none;
   display: flex;
@@ -79,8 +74,13 @@ body {
   height: 100%;
 }
 
-.right_container ul{
-  margin-top: 350px;
+.right_container p{
+  width: 500px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  justify-content: flex-end;
+  letter-spacing: 0.3em;
 }
 
 .neutral{

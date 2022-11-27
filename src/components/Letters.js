@@ -56,7 +56,8 @@ function Letters({  setLetter,
     return (
         <div className={`buttons`}>
             {alphabet.map((letter) => 
-                <button 
+                <button
+                    data-test="letter"
                     className={`letters ${selectedLetter.includes(letter) ? "disabled" : letterState}`} 
                     onClick={() => clickedLetter(letter)} 
                     key={letter}>

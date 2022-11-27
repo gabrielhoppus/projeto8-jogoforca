@@ -14,7 +14,7 @@ function App() {
   const [wordState, setWordState] = useState("hidden");
   const [wordList] = useState(palavras)
   const [wordSeed, setSeed] = useState(Math.floor(Math.random() * palavras.length))
-  const [word, setWord] = useState(palavras[wordSeed]);
+  const [word, setWord] = useState("");
   const [selectedLetter, setLetter] = useState([])
   const [targetWord, setTarget] = useState([])
   const [targetPuzzle, setPuzzle] = useState([])

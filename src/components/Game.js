@@ -9,25 +9,35 @@ function Game({ image,
                 setWordState,
                 word,
                 setWord,
-                wordSeed,
-                setSeed,
                 wordList,
                 setPuzzle,
                 setTarget,
-                targetPuzzle,
                 statusColor,
                 setColor,
                 setInput,
-                setLetter
+                setLetter,
+                targetPuzzle
                 }){
     
     let wordArray = [];
     let hiddenArray = [];
     const newWordList = [...wordList]
-    const newTargetPuzzle = [...targetPuzzle]
-    const randomSeed = Math.floor(Math.random() * newWordList.length)
+    
+
+    function getWord(){
+        const randomSeed = Math.floor(Math.random() * newWordList.length)
+        const chosenWord = newWordList[randomSeed]
+        wordArray = chosenWord.split("");
+        for (let i = 0; i < wordArray.length; i++){
+            hiddenArray.push("_")
+        };
+        const hiddenWord = hiddenArray.join(" ")
+        setPuzzle(hiddenWord)
+        setWord(chosenWord)
+    }
 
     function chooseWord(){
+        getWord()
         setErrorCount(0);
         setImage(errorCount);
         setInputState(false);
@@ -35,36 +45,25 @@ function Game({ image,
         setLetter([])
         setButtonState("enabled");
         setWordState("");
-        setSeed(randomSeed);
-        setWord(newWordList[wordSeed]);
         setTarget(wordArray);
         setPuzzle(hiddenArray);
         setColor("neutral");
         setInput("");
-        console.log(wordArray);
-        console.log(hiddenArray);
-        console.log(word)
-        console.log(word.length)        
     }
 
-    wordArray = word.split("");
-    for (let i = 0; i < wordArray.length; i++){
-        hiddenArray.push("_")
-    };
+    
+
+
 
 
     return (
         <div className="container">
-            <img className={`hanging ${wordState}`} src={`./assets/forca${image ? errorCount : errorCount}.png`} alt="forca"/>
+            <img data-test="game-image" className={`hanging ${wordState}`} src={`./assets/forca${image ? errorCount : errorCount}.png`} alt="forca"/>
             <div className="right_container">
-                <button onClick={chooseWord}>Escolher palavra</button>
-                {hiddenArray.map((letter, i) =>
-                    <ul className={`word`} key={`${word+i}`}>
-                        <li className={`${wordState} ${statusColor}`} key={`${letter+i}`}>
-                            {letter ? newTargetPuzzle[i] : hiddenArray[i]}
-                        </li>
-                    </ul>
-            )}
+                <button data-test="choose-word" onClick={chooseWord}>Escolher palavra</button>
+                <p data-test="word" data-answer={`${word}`} className={`word ${wordState} ${statusColor}`} key={`${word}`}>
+                    {targetPuzzle}
+                </p>
             </div>
         </div>
     )

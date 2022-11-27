@@ -15,11 +15,8 @@ function Guess({    inputState,
 
     let correctGuess = [...targetPuzzle];
     const correctWordArray = [...targetWord];
-    const wordComparison = word;
+    const wordComparison = correctWordArray.join("")
     
-
-
-
     function makeGuess(){
         if (guessInput === wordComparison){
             correctGuess = correctWordArray;
@@ -41,13 +38,14 @@ function Guess({    inputState,
     return (
         <div className="input_container">
             <span>Já sei a palavra!</span>
-            <input 
+            <input
+                data-test="guess-input"
                 disabled={inputState ? inputState : false} 
                 value={guessInput}
                 onChange={e => setInput(e.target.value)}
                 >                
             </input>
-            <button onClick={makeGuess} className={buttonState}>Chutar</button>
+            <button data-test="guess-button" onClick={makeGuess} className={buttonState}>Chutar</button>
         </div>
     )
 };
