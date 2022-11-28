@@ -17,7 +17,9 @@ function Game({ image,
                 setInput,
                 setLetter,
                 targetPuzzle,
-                setVisualState
+                setVisualState,
+                setVisualButton,
+                VisualButton
                 }){
     
     let wordArray = [];
@@ -45,7 +47,8 @@ function Game({ image,
         setLetterState(false);
         setVisualState("enabled");
         setLetter([]);
-        setButtonState("enabled");
+        setButtonState(false);
+        setVisualButton("enabled")
         setWordState("");
         setTarget(wordArray);
         setPuzzle(hiddenArray);
@@ -60,7 +63,7 @@ function Game({ image,
 
     return (
         <div className="container">
-            <img data-test="game-image" className={`hanging ${wordState}`} src={`./assets/forca${image ? errorCount : errorCount}.png`} alt="forca"/>
+            <img data-test="game-image" className={`hanging`} src={`./assets/forca${image ? errorCount : errorCount}.png`} alt="forca"/>
             <div className="right_container">
                 <button data-test="choose-word" onClick={chooseWord}>Escolher palavra</button>
                 <p data-test="word" data-answer={`${word}`} className={`word ${wordState} ${statusColor}`} key={`${word}`}>

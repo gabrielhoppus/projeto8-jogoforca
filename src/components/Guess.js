@@ -10,7 +10,10 @@ function Guess({    inputState,
                     setButtonState,
                     setLetterState,
                     setInputState,
-                    setColor
+                    setColor,
+                    setVisualButton,
+                    visualButton,
+                    setVisualState
                     }){
 
     let correctGuess = [...targetPuzzle];
@@ -22,14 +25,18 @@ function Guess({    inputState,
             correctGuess = correctWordArray;
             setPuzzle(correctGuess);
             setLetterState("disabled");
-            setButtonState("disabled");
+            setVisualState("disabled")
+            setVisualButton("disabled");
+            setButtonState(true);
             setInputState(true);
             setColor("win");
         }else{
             setErrorCount(6);
             setPuzzle(correctWordArray);
+            setVisualButton("disabled");
+            setVisualState("disabled")
             setLetterState("disabled");
-            setButtonState("disabled");
+            setButtonState(true);
             setInputState(true);
             setColor("loss");
         }
@@ -45,7 +52,7 @@ function Guess({    inputState,
                 onChange={e => setInput(e.target.value)}
                 >                
             </input>
-            <button data-test="guess-button" onClick={makeGuess} className={buttonState}>Chutar</button>
+            <button data-test="guess-button" onClick={makeGuess} className={visualButton} disabled={buttonState}>Chutar</button>
         </div>
     )
 };

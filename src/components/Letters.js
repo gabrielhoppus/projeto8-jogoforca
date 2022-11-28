@@ -61,6 +61,7 @@ function Letters({  setLetter,
         <div className={`buttons`}>
             {alphabet.map((letter) => 
                 <button
+                    disabled={!selectedLetter.includes(letter)? letterState : true}
                     data-test="letter"
                     className={`letters ${selectedLetter.includes(letter) ? "disabled" : visualState}`}  
                     onClick={() => clickedLetter(letter)}

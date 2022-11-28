@@ -9,8 +9,9 @@ function App() {
   const [errorCount, setErrorCount] = useState(0);
   const [image, setImage] = useState(errorCount);
   const [inputState, setInputState] = useState(true);
-  const [letterState, setLetterState] = useState("disabled");
-  const [buttonState, setButtonState] = useState("disabled");
+  const [letterState, setLetterState] = useState(true);
+  const [buttonState, setButtonState] = useState(true);
+  const [visualButton, setVisualButton] = useState("disabled")
   const [wordState, setWordState] = useState("hidden");
   const [wordList] = useState(palavras)
   const [wordSeed, setSeed] = useState(Math.floor(Math.random() * palavras.length))
@@ -48,6 +49,8 @@ function App() {
       setInput={setInput}
       setLetter={setLetter}
       setVisualState={setVisualState}
+      visualButton={visualButton}
+      setVisualButton={setVisualButton}
       />
       <Letters 
       letterState={letterState}
@@ -64,6 +67,8 @@ function App() {
       setColor={setColor}
       visualState={visualState}
       setVisualState={setVisualState}
+      visualButton={visualButton}
+      setVisualButton={setVisualButton}
       />
       <Guess
       inputState={inputState}
@@ -79,6 +84,9 @@ function App() {
       setButtonState={setButtonState}
       setInputState={setInputState}
       setColor={setColor}
+      visualButton={visualButton}
+      setVisualButton={setVisualButton}
+      setVisualState={setVisualState}
       />
     </div>
   );
