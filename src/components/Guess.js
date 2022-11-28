@@ -52,9 +52,9 @@ function Guess({    inputState,
                 >                
             </input>
             <button
-                data-test="guess-button" 
-                onClick={makeGuess} 
-                className={visualButton} 
+                data-test="guess-button"
+                onClick={makeGuess}
+                className={visualButton}
                 disabled={buttonState}>Chutar</button>
         </div>
     )

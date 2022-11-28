@@ -20,11 +20,10 @@ function Game({ image,
                 setVisualState,
                 setVisualButton
                 }){
-    
+
     let wordArray = [];
     let hiddenArray = [];
     const newWordList = [...wordList]
-    
 
     function getWord(){
         const randomSeed = Math.floor(Math.random() * newWordList.length)
@@ -55,17 +54,12 @@ function Game({ image,
         setInput("");
     }
 
-    
-
-
-
-
     return (
         <div className="container">
             <img
                 data-test="game-image"
                 className={`hanging`}
-                src={`./assets/forca${image ? errorCount : errorCount}.png`} alt="forca"
+                src={`./assets/forca${image ? 0 : errorCount}.png`} alt="forca"
                 />
             <div className="right_container">
                 <button
