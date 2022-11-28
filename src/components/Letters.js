@@ -11,7 +11,8 @@ function Letters({  setLetter,
                     setColor,
                     letterState,
                     visualState,
-                    setVisualState
+                    setVisualState,
+                    setVisualButton
                 }){
 
     const alphabet = [  "a", "b", "c", "d", "e", "f", "g", "h", "i",
@@ -44,13 +45,15 @@ function Letters({  setLetter,
         if (newErrorCount === 6){
             setPuzzle(newTarget);
             setLetterState(true);
-            setVisualState("disabled")
+            setVisualState("disabled");
+            setVisualButton("disabled");
             setButtonState("disabled");
             setInputState(true);
             setColor("loss");
         }else if(newPuzzle.toString() === newTarget.toString()){
             setLetterState(true);
-            setVisualState("disabled")
+            setVisualState("disabled");
+            setVisualButton("disabled");
             setButtonState("disabled");
             setInputState(true);
             setColor("win");
@@ -63,7 +66,7 @@ function Letters({  setLetter,
                 <button
                     disabled={!selectedLetter.includes(letter)? letterState : true}
                     data-test="letter"
-                    className={`letters ${selectedLetter.includes(letter) ? "disabled" : visualState}`}  
+                    className={`letters ${selectedLetter.includes(letter) ? "disabled" : visualState}`}
                     onClick={() => clickedLetter(letter)}
                     key={letter}>
                     {letter.toUpperCase()}

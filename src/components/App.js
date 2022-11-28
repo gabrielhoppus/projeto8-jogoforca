@@ -11,17 +11,17 @@ function App() {
   const [inputState, setInputState] = useState(true);
   const [letterState, setLetterState] = useState(true);
   const [buttonState, setButtonState] = useState(true);
-  const [visualButton, setVisualButton] = useState("disabled")
+  const [visualButton, setVisualButton] = useState("disabled");
   const [wordState, setWordState] = useState("hidden");
-  const [wordList] = useState(palavras)
-  const [wordSeed, setSeed] = useState(Math.floor(Math.random() * palavras.length))
+  const [wordList] = useState(palavras);
+  const [wordSeed, setSeed] = useState(Math.floor(Math.random() * palavras.length));
   const [word, setWord] = useState("");
-  const [selectedLetter, setLetter] = useState([])
-  const [targetWord, setTarget] = useState([])
-  const [targetPuzzle, setPuzzle] = useState([])
-  const [guessInput, setInput] = useState("")
-  const [statusColor, setColor] = useState("neutral")
-  const [visualState, setVisualState] = useState("disabled")
+  const [selectedLetter, setLetter] = useState([]);
+  const [targetWord, setTarget] = useState([]);
+  const [targetPuzzle, setPuzzle] = useState([]);
+  const [guessInput, setInput] = useState("");
+  const [statusColor, setColor] = useState("neutral");
+  const [visualState, setVisualState] = useState("disabled");
 
   return (
     <div>
