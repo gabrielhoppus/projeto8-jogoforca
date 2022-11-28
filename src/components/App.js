@@ -20,6 +20,7 @@ function App() {
   const [targetPuzzle, setPuzzle] = useState([])
   const [guessInput, setInput] = useState("")
   const [statusColor, setColor] = useState("neutral")
+  const [visualState, setVisualState] = useState("disabled")
 
   return (
     <div>
@@ -46,6 +47,7 @@ function App() {
       setColor={setColor}
       setInput={setInput}
       setLetter={setLetter}
+      setVisualState={setVisualState}
       />
       <Letters 
       letterState={letterState}
@@ -60,6 +62,8 @@ function App() {
       setButtonState={setButtonState}
       setInputState={setInputState}
       setColor={setColor}
+      visualState={visualState}
+      setVisualState={setVisualState}
       />
       <Guess
       inputState={inputState}

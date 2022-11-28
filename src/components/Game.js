@@ -16,7 +16,8 @@ function Game({ image,
                 setColor,
                 setInput,
                 setLetter,
-                targetPuzzle
+                targetPuzzle,
+                setVisualState
                 }){
     
     let wordArray = [];
@@ -37,12 +38,13 @@ function Game({ image,
     }
 
     function chooseWord(){
-        getWord()
+        getWord();
         setErrorCount(0);
         setImage(errorCount);
         setInputState(false);
-        setLetterState("enabled");
-        setLetter([])
+        setLetterState(false);
+        setVisualState("enabled");
+        setLetter([]);
         setButtonState("enabled");
         setWordState("");
         setTarget(wordArray);
